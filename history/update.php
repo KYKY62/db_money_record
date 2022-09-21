@@ -11,7 +11,10 @@ $details    = $_POST['details'];
 $update_at  = $_POST['update_at'];
 
 
-$sql_check = "SELECT * FROM history WHERE id_user = '$id_user' AND date = '$date'";
+$sql_check = "SELECT * FROM history
+              WHERE
+              id_user = '$id_user' AND date='$date' AND type = '$type'
+              ";
 
 $result_check = $connect->query($sql_check);
 
@@ -27,7 +30,9 @@ if ($result_check->num_rows > 1) {
             date='$date',
             total='$total',
             details='$details',
-            update_at = '$update_at' WHERE id_history = '$id_history' ";
+            update_at = '$update_at' 
+            WHERE 
+            id_history = '$id_history' ";
 
     $result = $connect->query($sql);
 
